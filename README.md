@@ -1,9 +1,7 @@
 # Digital Diary app
 
-This is a modern day journal to share your thoughts with others and see how others are thinking. It is a digital diary that puts no boundaries and keep all data for public to view. This was a university database project and demo of this website is available at this link:
-```
-https://www.youtube.com/
-```
+This is a modern day journal to share your thoughts with others and see how others are thinking. It is a digital diary that puts no boundaries and keep all data for public to view. This was a university database project and demo of this app is available at this link:
+https://drive.google.com/file/d/1ZsEZTMlH4XCiq0t-H_gBRK3XDMqPx6dW/view
 
 
 ![Alt text](/public/images/Digital_Diary.png "DigitalDiary")
@@ -15,8 +13,6 @@ This app uses MySQL. To use something different, open up config/Database.php and
 
 To use MySQL, make sure you install it, setup a database and then add your db credentials(database, username and password) to the .env.example file and rename it to .env
 
-
-# Laravel Xampp Setup (Windows & Mac)
 
 ## Install Xampp
 Install Xampp from https://www.apachefriends.org/index.html
@@ -100,6 +96,35 @@ To create all the nessesary tables and columns, run the following
 ```
 php artisan migrate
 ```
+### Manual
+
+If migration does not work, please use below commands in Command Prompt and setup database manually.
+
+```
+mysql -u root
+```
+If your computer does not recognize mysql, then you will need to add mysql path in Environment Variables. Here is a how to video on that from YouTube:
+https://www.youtube.com/watch?v=BB3v1K6TL5c
+```
+CREATE USER 'nusrat'@'localhost' IDENTIFIED BY 'password';
+```
+For password, it it recommeneded to use 'password'. If you are using different password then this, make sure to update the .env file of the project where it says 'DB_PASSWORD'.
+```
+GRANT ALL PRIVILEGES ON * . * TO 'nusrat'@'localhost';
+```
+```
+FLUSH PRIVILEGES;
+```
+```
+exit
+```
+```
+mysql -u nusrat -p
+```
+```
+CREATE DATABASE diaries;
+```
+
 
 ### Seeding The Database
 To add the dummy diariers with a single user, run the following
